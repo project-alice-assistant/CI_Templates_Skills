@@ -2,20 +2,23 @@ skillValidation:
   stage: test
   image: python:slim-buster
   before_script:
-  - python3 -m pip install --upgrade pip
-  - pip3 install alice-sk
+    - python3 -m pip install --upgrade pip
+    - pip3 install alice-sk
   script:
-  - alice-sk validate --paths . --token $GITHUB_TOKEN --branch $CI_COMMIT_REF_NAME
+    - alice-sk validate --paths . --token $GITHUB_TOKEN --branch $CI_COMMIT_REF_NAME
+
 
 mypyValidation:
   stage: test
   image: python:slim-buster
   before_script:
-  - python3 -m pip install --upgrade pip
-  - pip3 install mypy
-  - wget https://raw.githubusercontent.com/project-alice-assistant/CI_Templates_Skills/master/mypy.ini
+    - python3 -m pip install --upgrade pip
+    - pip3 install mypy
+    - apt-get update -qq && apt-get install -qq curl
+    - curl https://raw.githubusercontent.com/project-alice-assistant/CI_Templates_Skills/master/mypy.ini -o mypy.ini
   script:
-  - mypy .
+    - mypy .
+
 
 sonarqube-check:
   stage: test
@@ -29,3 +32,13 @@ sonarqube-check:
   script:
     - sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.projectKey="project-alice-assistant_$CI_PROJECT_NAME" -Dsonar.organization=project-alice-assistant
   allow_failure: true
+
+
+tagging-repo:
+  stage: deploy
+  image: debian:stable-slim
+  before_script:
+    - apt-get update -qq && apt-get install -qq curl jq
+  script:
+    - curl https://raw.githubusercontent.com/project-alice-assistant/CI_Templates_Skills/master/tagging.sh -o tagging.sh
+    - ./tagging.sh
