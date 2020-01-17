@@ -41,4 +41,5 @@ tagging-repo:
     - apt-get update -qq && apt-get install -qq curl jq
   script:
     - curl https://raw.githubusercontent.com/project-alice-assistant/CI_Templates_Skills/master/tagging.sh -o tagging.sh
+    - chmod +x tagging.sh
     - ./tagging.sh
