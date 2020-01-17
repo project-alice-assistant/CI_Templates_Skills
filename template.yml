@@ -1,3 +1,9 @@
+stages:
+  - test
+  - tag
+  - deploy
+
+
 skillValidation:
   stage: test
   image: python:slim-buster
@@ -35,7 +41,7 @@ sonarqube-check:
 
 
 tagging-repo:
-  stage: deploy
+  stage: tag
   image: debian:stable-slim
   before_script:
     - apt-get update -qq && apt-get install -qq curl jq
@@ -43,3 +49,9 @@ tagging-repo:
     - curl https://raw.githubusercontent.com/project-alice-assistant/CI_Templates_Skills/master/tagging.sh -o tagging.sh
     - chmod +x tagging.sh
     - ./tagging.sh
+
+
+trigger-store-build:
+  stage: deploy
+  script:
+    - "curl -X POST -F token=$ProjectAliceSkillsToken -F ref=master https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
