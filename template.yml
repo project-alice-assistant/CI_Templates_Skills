@@ -9,9 +9,9 @@ skillValidation:
   image: python:slim-buster
   before_script:
     - python3 -m pip install --upgrade pip
-    - pip3 install alice-sk==0.7.0
+    - pip3 install alice-sk==0.8.0
   script:
-    - alice-sk validate --paths . --token $GITHUB_TOKEN --branch $CI_COMMIT_REF_NAME
+    - alice-sk validate --paths .
 
 
 mypyValidation:
