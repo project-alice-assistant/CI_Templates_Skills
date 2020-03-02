@@ -9,9 +9,9 @@ skillValidation:
   image: python:slim-buster
   before_script:
     - python3 -m pip install --upgrade pip
-    - pip3 install alice-sk==0.8.0
+    - pip3 install projectalice-sk==1.0.2
   script:
-    - alice-sk validate --paths .
+    - projectalice-sk validate --paths .
 
 
 mypyValidation:
@@ -54,4 +54,4 @@ tagging-repo:
 trigger-store-build:
   stage: deploy
   script:
-    - "curl -X POST -F token=$ProjectAliceSkillsToken -F ref=1.0.0-a5 https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
+    - "curl -X POST -F token=$ProjectAliceSkillsToken -F ref=1.0.0-a6 https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
