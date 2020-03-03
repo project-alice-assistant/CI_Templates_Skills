@@ -54,4 +54,4 @@ tagging-repo:
 trigger-store-build:
   stage: deploy
   script:
-    - "curl -X POST -F token=$ProjectAliceSkillsToken -F ref=1.0.0-a6 https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
+    - "curl -X POST -F token=$ProjectAliceSkillsToken -F ref=1.0.0-a5 https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
