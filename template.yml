@@ -30,7 +30,7 @@ sonarqube-check:
   stage: test
   image:
     name: sonarsource/sonar-scanner-cli:latest
-    entrypoint: [""]
+    entrypoint: [ "" ]
   variables:
     SONAR_TOKEN: $SONAR_TOKEN
     SONAR_HOST_URL: "https://sonarcloud.io"
