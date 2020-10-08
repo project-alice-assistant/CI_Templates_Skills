@@ -6,20 +6,20 @@ stages:
 
 skillValidation:
   stage: test
-  image: python:slim-buster
+  image: python3.7
   before_script:
-  - python3.7 -m pip install --upgrade pip
-  - pip3.7 install projectalice-sk
+  - python3 -m pip install --upgrade pip
+  - pip3 install projectalice-sk
   script:
   - projectalice-sk validate --paths .
 
 
 mypyValidation:
   stage: test
-  image: python:slim-buster
+  image: python3.7
   before_script:
   - python3.7 -m pip install --upgrade pip
-  - pip3.7 install mypy
+  - pip3 install mypy
   - apt-get update -qq && apt-get install -qq curl
   - curl https://raw.githubusercontent.com/project-alice-assistant/CI_Templates_Skills/master/mypy.ini -o mypy.ini
   script:
