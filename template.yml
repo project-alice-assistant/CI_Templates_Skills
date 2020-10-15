@@ -54,4 +54,4 @@ tagging-repo:
 trigger-store-build:
   stage: deploy
   script:
-  - "curl -X POST -F token=$GITLAB_CI_SKILLS_TRIGGER -F ref=master https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
+  - "curl -X POST --form token=${{GITLAB_CI_SKILLS_TRIGGER}} --form ref=master https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
