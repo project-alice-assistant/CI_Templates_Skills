@@ -1,6 +1,3 @@
-stages:
-  - deploy
-
 trigger-store-build:
   stage: deploy
   only:
