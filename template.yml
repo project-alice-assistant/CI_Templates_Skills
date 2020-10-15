@@ -61,4 +61,4 @@ trigger-store-build:
     - web
     - api
   script:
-    - curl --location --request POST 'https://gitlab.com/api/v4/projects/16103315/trigger/pipeline' --form 'token=5dc8af374154670770d44132b697b5' --form 'ref=master'
+    - "curl -X POST -F token=5dc8af374154670770d44132b697b5 -F ref=master https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
