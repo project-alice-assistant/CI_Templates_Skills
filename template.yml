@@ -1,5 +1,4 @@
 trigger-store-build:
-  stage: deploy
   only:
     - pushes
     - web
