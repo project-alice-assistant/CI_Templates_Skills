@@ -1,6 +1,6 @@
 stages:
-  - test
-  - tag
+  #- test
+  #- tag
   - deploy
 
 
