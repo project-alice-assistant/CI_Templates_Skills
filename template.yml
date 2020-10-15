@@ -60,4 +60,4 @@ trigger-store-build:
     - pushes
     - web
   script:
-    - "curl -X POST --form token=${{GITLAB_CI_SKILLS_TRIGGER}} --form ref=master https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
+    - "curl -X POST --form token=$GITLAB_CI_SKILLS_TRIGGER --form ref=master https://gitlab.com/api/v4/projects/16103315/trigger/pipeline"
