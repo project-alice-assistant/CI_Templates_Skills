@@ -1,5 +1,6 @@
 stages:
   - test
+  - sonarcloud
   - tag
   - deploy
 
@@ -28,7 +29,7 @@ mypyValidation:
 
 
 sonarqube-check:
-  stage: test
+  stage: sonarcloud
   image:
     name: sonarsource/sonar-scanner-cli:latest
     entrypoint: [ "" ]
