@@ -12,6 +12,7 @@ skillValidation:
     - pip3 install projectalice-sk
   script:
     - projectalice-sk validate --paths .
+    - projectalice-sk unittests
 
 
 mypyValidation:
