@@ -63,4 +63,4 @@ trigger-store-build:
     - web
     - api
   script:
-    - curl -X POST -F token=$DEPLOY_STORE_TOKEN -F ref=master https://gitlab.com/api/v4/projects/16103315/trigger/pipeline
+    - curl -X POST -F token=$DEPLOY_STORE_TOKEN -F ref=master https://gitlab.com/api/v4/projects/24454601/trigger/pipeline
