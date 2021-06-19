@@ -24,6 +24,7 @@ mypyValidation:
     - pip3 install mypy
     - apt-get update -qq && apt-get install -qq curl
     - curl https://raw.githubusercontent.com/project-alice-assistant/CI_Templates_Skills/master/mypy.ini -o mypy.ini
+    - mypy --install-types
   script:
     - mypy .
 
